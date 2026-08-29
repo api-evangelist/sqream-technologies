@@ -1,0 +1,52 @@
+generated: '2026-08-29'
+method: searched
+source: https://docs.sqream.com/en/latest/releases/index.html
+scheme: major.minor
+current_version: '4.17'
+cadence: >-
+  Irregular but active — 12 minor releases between January 2023 and April 2026, clustered heavily in
+  2024-2025 (six releases in 2024, four in 2025).
+note: >-
+  SQream publishes dated release notes per version inside the versioned documentation site rather
+  than on a marketing changelog page; each release gets its own page under /releases/<version>.html
+  and the whole documentation set is republished per version (an /en/4.x/ tree per release). The
+  release notes are the changelog. Entries below are the recent window read from the release index
+  on 2026-08-29; per-release highlights are intentionally omitted where this pass did not open the
+  individual page rather than summarising them from the index.
+entries:
+- version: '4.17'
+  date: '2026-04-23'
+  url: https://docs.sqream.com/en/latest/releases/4.17.html
+- version: '4.16'
+  date: '2026-01-01'
+  url: https://docs.sqream.com/en/latest/releases/4.16.html
+- version: '4.15'
+  date: '2025-10-19'
+  url: https://docs.sqream.com/en/latest/releases/4.15.html
+- version: '4.14'
+  date: '2025-08-26'
+  url: https://docs.sqream.com/en/latest/releases/4.14.html
+- version: '4.13'
+  date: '2025-07-23'
+  url: https://docs.sqream.com/en/latest/releases/4.13.html
+- version: '4.12'
+  date: '2025-07-03'
+  url: https://docs.sqream.com/en/latest/releases/4.12.html
+- version: '4.11'
+  date: '2025-04-09'
+  url: https://docs.sqream.com/en/latest/releases/4.11.html
+- version: '4.10'
+  date: '2025-01-20'
+  url: https://docs.sqream.com/en/latest/releases/4.10.html
+- version: '4.9'
+  date: '2024-11-28'
+  url: https://docs.sqream.com/en/latest/releases/4.9.html
+- version: '4.8'
+  date: '2024-10-06'
+  url: https://docs.sqream.com/en/latest/releases/4.8.html
+- version: '4.7'
+  date: '2024-09-01'
+  url: https://docs.sqream.com/en/latest/releases/4.7.html
+- version: '4.6'
+  date: '2024-08-20'
+  url: https://docs.sqream.com/en/latest/releases/4.6.html

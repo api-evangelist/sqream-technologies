@@ -1,0 +1,83 @@
+generated: '2026-08-29'
+method: searched
+source: https://docs.sqream.com/en/latest/
+note: >-
+  SQream's standards posture is in the DATABASE interface layer, not the web-API layer. There is no
+  OpenAPI, no OAuth 2.0/OIDC, no RFC 9457 problem+json and no JSON:API surface to assert against,
+  because there is no HTTP API. What SQream does conform to is the stack of long-standing database
+  access standards — ANSI SQL, PEP 249, JDBC, ODBC — and it publishes a per-feature SQL conformance
+  checklist, which is an unusually explicit self-declaration for this market.
+standards:
+- id: ansi-sql
+  conforms: true
+  evidence: >-
+    SQreamDB is documented as an ANSI-SQL-compliant relational database and publishes a per-feature
+    "SQL Feature Checklist" enumerating which SQL features are and are not supported.
+  url: https://docs.sqream.com/en/latest/reference/sql_feature_support.html
+- id: pep-249
+  name: Python DB-API 2.0 (PEP 249)
+  conforms: true
+  evidence: >-
+    The first-party `pysqream` package is published as a "DB-API connector for SQream DB"; the DB-API
+    2.0 specification is PEP 249.
+  url: https://pypi.org/project/pysqream/
+- id: jdbc
+  conforms: true
+  evidence: >-
+    First-party JDBC driver published to Maven Central as com.sqream:sqream-jdbc and documented in the
+    client-driver matrix.
+  url: https://docs.sqream.com/en/latest/connecting_to_sqream/client_drivers/jdbc/index.html
+- id: odbc
+  conforms: true
+  evidence: First-party ODBC driver (5.0.0) documented in the client-driver matrix.
+  url: https://docs.sqream.com/en/latest/connecting_to_sqream/client_drivers/odbc/index.html
+- id: ldap
+  name: LDAP (RFC 4511) authentication
+  conforms: true
+  evidence: >-
+    LDAP authentication against Active Directory or another directory service is a documented,
+    admin-enabled configuration.
+  url: https://docs.sqream.com/en/latest/configuration_guides/ldap.html
+- id: tls
+  conforms: true
+  evidence: >-
+    TLS is configurable on the ODBC/JDBC connectors and via the SQL client's --ssl flag; sqream.com
+    itself serves TLS 1.3 with HSTS max-age 31536000 (probed 2026-08-29).
+  url: https://docs.sqream.com/en/latest/reference/cli/sqream_sql.html
+- id: apache-iceberg
+  conforms: true
+  evidence: >-
+    Apache Iceberg integration is documented in the AISQream documentation branch, and SQream
+    maintains a public iceberg-cpp17 repository (Apache Iceberg C++, backwards compatible to C++17).
+  url: https://docs.sqream.com/en/aisqream/ai_ml/apache_iceberg_sqream_integration.html
+- id: oauth2
+  conforms: false
+  evidence: >-
+    No OAuth 2.0 surface. /.well-known/oauth-authorization-server returns 404 on every SQream host.
+- id: openid-connect
+  conforms: false
+  evidence: No OIDC discovery document; /.well-known/openid-configuration returns 404 on every host.
+- id: rfc9457
+  conforms: false
+  evidence: No HTTP API, therefore no application/problem+json error envelope.
+domain_standard:
+  market: analytical databases / data warehousing
+  declared: ansi-sql
+  evidence: >-
+    SQreamDB declares its domain standard the way this market does — a published SQL feature-support
+    checklist plus DB-API/JDBC/ODBC drivers — rather than through a message-format or protocol URN. A
+    team that already speaks SQL and JDBC integrates with no bespoke connector.
+  url: https://docs.sqream.com/en/latest/reference/sql_feature_support.html
+compliance_claims:
+  certified: []
+  note: >-
+    IMPORTANT — SQream holds NO published certifications. Its Security Policy page states that it is
+    "currently working to put in place the controls and enhancements to meet the compliance needs of
+    both the General Data Protection Regulation (GDPR) and SOC-2 Type II" with the aim of full
+    compliance "by the end of 2023", and that ISO/IEC 27001 is "part of our roadmap". These are stated
+    intentions, not attestations, and the page carries no report, auditor, or certificate date. An
+    automated keyword pass over this page mis-read the words GDPR and ISO/IEC 27001 as held
+    certifications and wrote a trust-center artifact asserting them; that artifact was deleted and NO
+    Compliance or TrustCenter pointer is emitted. Recorded here so the mistake is not repeated.
+  source: https://sqream.com/security-policy/
+  checked: '2026-08-29'

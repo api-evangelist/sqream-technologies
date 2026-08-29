@@ -1,0 +1,17 @@
+generated: '2026-08-29'
+method: searched
+source: https://docs.sqream.com/en/latest/
+limit_count: 0
+note: >-
+  Not applicable rather than undocumented. SQream exposes no HTTP API, so there are no request quotas,
+  no X-RateLimit-*/RateLimit-* response headers, no Retry-After and no 429 status to record — the
+  concept has no surface here. The nearest analogue in SQreamDB is workload management: statements are
+  filed into named service queues (the CLI's -s/--service flag, default `sqream`) and concurrency is
+  governed per service by cluster configuration the operator sets, not by a vendor-published limit.
+  That is a self-managed capacity control, not a provider rate limit, so it is recorded as context and
+  not counted as a limit.
+applicable: false
+headers: []
+limits: []
+related:
+  service_queues: https://docs.sqream.com/en/latest/reference/cli/sqream_sql.html

@@ -1,0 +1,103 @@
+generated: '2026-08-29'
+method: searched
+source: https://docs.sqream.com/en/latest/
+docs:
+- https://docs.sqream.com/en/latest/connecting_to_sqream/client_drivers/index.html
+- https://docs.sqream.com/en/latest/reference/cli/sqream_sql.html
+- https://docs.sqream.com/en/latest/operational_guides/access_control.html
+note: >-
+  These are DATABASE-CONNECTION conventions, not HTTP-API conventions. SQream publishes no REST/HTTP
+  surface, so the usual cross-cutting web-API semantics — idempotency keys, cursor pagination,
+  sparse-fieldset expansion, request-id headers, media-type versioning, an error envelope, rate-limit
+  headers — have no surface to exist on. Each is recorded as `na` with the reason, rather than left
+  blank, so a reader can tell "does not apply" from "not checked". What DOES govern an integration
+  here is the driver/connection contract below.
+auth_style:
+  style: role + password on connect, optionally delegated to LDAP
+  detail: >-
+    Credentials are presented in the connection handshake, not per request. See
+    authentication/sqream-technologies-authentication.yml.
+connection:
+  protocol: SQream wire protocol over TCP
+  default_port: 5000
+  load_balanced_port: 3108
+  tls: opt-in (--ssl on the CLI; manual TLS configuration on ODBC/JDBC)
+  parameters:
+  - host
+  - port
+  - database
+  - username
+  - password
+  - service
+  - clustered
+  chunking:
+    field: chunksize
+    default: 128 KB
+    detail: >-
+      The network chunk size is a client-tunable transfer parameter — the closest analogue SQream has
+      to a page size. It governs transfer granularity, not result windowing.
+workload_routing:
+  mechanism: service queues
+  detail: >-
+    Statements are filed into a named service (queue), default `sqream`, selected per connection with
+    -s/--service. Concurrency and resource allocation are governed per service by cluster
+    configuration the operator controls.
+  source: https://docs.sqream.com/en/latest/reference/cli/sqream_sql.html
+idempotency:
+  supported: na
+  reason: >-
+    No HTTP surface, therefore no Idempotency-Key header, no key scope and no replay-retention window.
+    SQL statement re-execution semantics are the SQL engine's, not a vendor idempotency contract. NO
+    Idempotency pointer is emitted — asserting one here would be a false claim.
+pagination:
+  style: na
+  reason: SQL result sets are consumed by cursor through the driver; no HTTP pagination contract exists.
+field_expansion:
+  supported: na
+  reason: Field selection is the SELECT list; no sparse-fieldset or expand parameter surface.
+metadata:
+  supported: na
+  reason: No per-request metadata bag; system metadata is exposed as catalog tables.
+  catalog_reference: https://docs.sqream.com/en/latest/reference/catalog_reference.html
+request_tracing:
+  supported: na
+  reason: >-
+    No request-id response header. Statements are traceable through cluster logs and the metadata
+    server rather than through a per-call correlation id returned to the caller.
+versioning:
+  style: server release version (major.minor), documentation versioned per release
+  detail: >-
+    Clients pin a driver version against a server version; there is no negotiated API version, media
+    type or URL version segment. See lifecycle/sqream-technologies-lifecycle.yml.
+error_envelope:
+  format: na
+  reason: >-
+    Errors surface as SQL error messages through the driver's native exception type (DB-API exceptions
+    in Python, SQLException in JDBC), not as an HTTP problem+json body. SQream publishes no numbered
+    error-code registry that this pass could find, so no errors/ artifact is emitted.
+rate_limit_signaling:
+  supported: na
+  reason: See rate-limits/sqream-technologies-rate-limits.yml — no HTTP surface, no limit headers.
+dry_run_mode:
+  supported: na
+  reason: >-
+    No HTTP write surface to rehearse. The SQL analogue is EXPLAIN, which plans rather than simulates
+    a write, and SQream publishes no documented dry-run mode for DML.
+reversibility:
+  grade: na
+  reason: >-
+    Reversibility is a property of an API's write operations, and SQream exposes no API write
+    operations — the write surface is SQL DML/DDL executed by the operator's own client. SQream
+    publishes no reversal operation, no undo/restore endpoint, and no stated reversal window, and this
+    pass found no documented time-bounded recovery guarantee to cite. Marked `na` rather than
+    `documented` deliberately: inventing a window here — "restore within N days" — would be the one
+    error in this artifact that could cost a user real data, so nothing is asserted that the docs do
+    not state.
+  write_surface: SQL DML/DDL via client driver or `sqream sql`
+  reversal_operations: []
+  checked: '2026-08-29'
+cross_references:
+  authentication: authentication/sqream-technologies-authentication.yml
+  lifecycle: lifecycle/sqream-technologies-lifecycle.yml
+  rate_limits: rate-limits/sqream-technologies-rate-limits.yml
+  conformance: conformance/sqream-technologies-conformance.yml

@@ -1,0 +1,121 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  Public package registries (pypi.org/pypi/<pkg>/json, registry.npmjs.org, search.maven.org)
+  queried unauthenticated on 2026-08-29, cross-referenced against the SQream GitHub organization
+  (https://github.com/SQream) and the SQreamDB client-driver matrix at
+  https://docs.sqream.com/en/latest/connecting_to_sqream/client_drivers/index.html
+note: >-
+  SQream has no HTTP API, so these are database CLIENT DRIVERS rather than REST SDKs — they speak
+  SQream's own wire protocol over TCP (default port 5000, or 3108 via the load balancer). Registry
+  currency is the only provider-published decay signal available here, and it is uneven: the Python
+  DB-API driver is current (2025-07-17) while the Node.js connector has not shipped since 2022-02-08
+  and the SQream Blue (cloud) family stalled in 2024. Driver versions listed in the docs matrix do not
+  always match the registry — the docs table advertises JDBC 6.6 while Maven Central's newest
+  com.sqream:sqream-jdbc is 6.0.1, because the ODBC/JDBC/.NET/Spark builds are also distributed as
+  downloads from a customer downloads page that this pipeline cannot read anonymously.
+packages:
+- name: pysqream
+  registry: pypi
+  url: https://pypi.org/project/pysqream/
+  language: Python
+  official: true
+  version: 6.3.0
+  published: '2025-07-17'
+  repository: https://github.com/SQream/pysqream
+  description: DB-API 2.0 (PEP 249) connector for SQreamDB.
+- name: pysqream-sqlalchemy
+  registry: pypi
+  url: https://pypi.org/project/pysqream-sqlalchemy/
+  language: Python
+  official: true
+  version: '1.4'
+  published: '2025-03-31'
+  repository: https://github.com/SQream/pysqream_sqlalchemy
+  description: SQLAlchemy dialect for SQreamDB.
+- name: pysqream-blue
+  registry: pypi
+  url: https://pypi.org/project/pysqream-blue/
+  language: Python
+  official: true
+  version: 1.0.48
+  published: '2024-08-26'
+  repository: https://github.com/SQream/pysqream-blue
+  description: DB-API 2.0 connector for SQream Blue (cloud).
+  note: No release in ~2 years; the SQream Blue line appears dormant.
+- name: pysqream-blue-sqlalchemy
+  registry: pypi
+  url: https://pypi.org/project/pysqream-blue-sqlalchemy/
+  language: Python
+  official: true
+  version: 0.9.3
+  published: '2024-09-24'
+  repository: https://github.com/SQream/pysqream_blue_sqlalchemy
+  description: SQLAlchemy dialect for SQream Blue.
+- name: airflow-provider-sqream-blue
+  registry: pypi
+  url: https://pypi.org/project/airflow-provider-sqream-blue/
+  language: Python
+  official: true
+  version: 0.0.13
+  published: '2023-11-22'
+  repository: https://github.com/SQream/apache-airflow-providers-sqream-blue
+  description: Apache Airflow provider package for SQream Blue.
+- name: com.sqream:sqream-jdbc
+  registry: maven
+  url: https://central.sonatype.com/artifact/com.sqream/sqream-jdbc
+  language: Java
+  official: true
+  version: 6.0.1
+  published: '2025-06-11'
+  repository: https://github.com/SQream/sqream-jdbc
+  description: SQreamDB JDBC driver.
+  note: >-
+    The GitHub source repository is ARCHIVED (last push 2021-07-20) while the Maven Central artifact
+    continues to ship — development moved out of the public repo.
+- name: com.sqream:sqream-blue-jdbc
+  registry: maven
+  url: https://central.sonatype.com/artifact/com.sqream/sqream-blue-jdbc
+  language: Java
+  official: true
+  version: 0.1.69
+  published: '2023-11-22'
+  description: JDBC driver for SQream Blue (cloud).
+- name: '@sqream/sqreamdb'
+  registry: npm
+  url: https://www.npmjs.com/package/@sqream/sqreamdb
+  language: JavaScript
+  official: true
+  version: 4.2.6
+  published: '2022-02-08'
+  repository: https://github.com/SQream/sqreamdb-node-connector
+  description: SQreamDB Node.js connector.
+  note: >-
+    Last published 2022-02-08, four years and eleven SQreamDB releases (4.0 -> 4.17) behind the
+    server it connects to. The docs matrix advertises Node.JS driver 4.2.4.
+- name: SQreamDB ODBC driver
+  registry: download
+  url: https://docs.sqream.com/en/latest/connecting_to_sqream/client_drivers/odbc/index.html
+  language: C/C++
+  official: true
+  version: 5.0.0
+  published: null
+  note: >-
+    Distributed from SQream's client-driver downloads page, not a public registry, so there is no
+    metadata endpoint to date the release. Version read from the docs client-driver matrix.
+- name: SQreamNet (.NET driver)
+  registry: download
+  url: https://docs.sqream.com/en/latest/connecting_to_sqream/client_drivers/index.html
+  language: .NET
+  official: true
+  version: 5.0.0
+  published: null
+  note: Download-only distribution; version read from the docs client-driver matrix, no registry to date it.
+- name: SQreamDB Spark connector
+  registry: download
+  url: https://docs.sqream.com/en/latest/connecting_to_sqream/client_drivers/index.html
+  language: Scala/Java
+  official: true
+  version: 5.0.0
+  published: null
+  note: Download-only distribution; version read from the docs client-driver matrix, no registry to date it.

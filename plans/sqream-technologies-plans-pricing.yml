@@ -1,0 +1,19 @@
+generated: '2026-08-29'
+method: searched
+source: https://sqream.com/product/pricing-page/
+plan_count: 0
+model: contact-sales
+note: >-
+  SQream publishes NO priced tiers. The pricing page describes the shape of the commercial model —
+  an annual subscription billed per NVIDIA GPU card, described as "flexible and predictable" — but
+  names no currency, no per-GPU rate, no included quota and no tier names beyond the product name
+  SQreamDB. The page's only calls to action are "Contact us for pricing", a "Fill the Form to Get
+  Your Pricing" form, and "Get your demo". There is no self-service sign-up, no free tier and no
+  published free trial, which is consistent with a self-managed GPU cluster product sold enterprise
+  direct. plan_count is 0 because zero priced plans are published, not because the page was unread.
+billing:
+  unit: per GPU card
+  period: annual
+  currency: null
+  amount: null
+plans: []

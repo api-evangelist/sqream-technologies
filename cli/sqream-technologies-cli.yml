@@ -1,0 +1,98 @@
+generated: '2026-08-29'
+method: searched
+source: https://docs.sqream.com/en/latest/reference/cli/index.html
+docs: https://docs.sqream.com/en/latest/reference/cli/index.html
+note: >-
+  SQream ships a family of first-party command-line programs rather than a single vendor CLI: one
+  interactive SQL client and five cluster-operations binaries. They are installed with the SQreamDB
+  server distribution; the SQL client is additionally downloadable on its own from the client-driver
+  downloads page and requires Java 8. There is no `npm i -g` / `pip install` path for the CLI, and no
+  cloud-control CLI, because SQreamDB is deployed as a cluster rather than consumed as a hosted API.
+install:
+- method: bundled
+  note: Installed as part of the SQreamDB server distribution.
+- method: download
+  note: >-
+    The SQL client is separately downloadable from SQream's Client Driver Downloads page (Java 8
+    required). The downloads page is not anonymously readable, so no direct artifact URL is recorded.
+commands:
+- name: sqream sql
+  group: client
+  purpose: Built-in SQL client — executes statements interactively or non-interactively.
+  url: https://docs.sqream.com/en/latest/reference/cli/sqream_sql.html
+  flags:
+  - flag: -c, --command
+    description: Single-command, non-interactive mode.
+  - flag: -f, --file
+    description: Multi-command, non-interactive mode from a file.
+  - flag: -h, --host
+    description: Address of the SQreamDB worker.
+    default: 127.0.0.1
+  - flag: -p, --port
+    description: Connection port.
+    default: '5000'
+  - flag: -d, --databasename, --database
+    description: Database name for queries and statements.
+  - flag: --username
+    description: Username for the database connection.
+  - flag: --password
+    description: Password; prompts interactively if omitted.
+  - flag: --clustered
+    description: Connect through the load balancer instead of a standalone worker.
+    default: 'false'
+  - flag: -s, --service
+    description: Service name (queue) that statements file into.
+    default: sqream
+  - flag: --results-only
+    description: Output results only, without timing information and row counts.
+    default: 'false'
+  - flag: --no-history
+    description: Prevent command history from being saved.
+    default: 'false'
+  - flag: --delimiter
+    description: Field separator.
+    default: ','
+  - flag: --chunksize
+    description: Network chunk size.
+    default: 128 KB
+  - flag: --log, --log-file
+    description: Enable log file creation.
+    default: 'false'
+  - flag: --show-results
+    description: Whether results are shown.
+    default: 'true'
+  - flag: --ssl
+    description: Use an SSL connection.
+    default: 'false'
+  - flag: --table-view
+    description: Display query results in table view.
+    default: 'true'
+  - flag: -v, --version
+    description: Show version information.
+- name: sqreamd
+  group: cluster
+  purpose: Start a SQreamDB worker.
+  url: https://docs.sqream.com/en/latest/reference/cli/sqreamd.html
+- name: metadata_server
+  group: cluster
+  purpose: Cluster manager/coordinator that enables scaling SQreamDB.
+  url: https://docs.sqream.com/en/latest/reference/cli/metadata_server.html
+- name: server_picker
+  group: cluster
+  purpose: Load-balancer endpoint that routes clients to an available worker.
+  url: https://docs.sqream.com/en/latest/reference/cli/server_picker.html
+- name: SqreamStorage
+  group: cluster
+  purpose: Initialize a cluster and set superusers.
+  url: https://docs.sqream.com/en/latest/reference/cli/sqream_storage.html
+- name: upgrade_storage
+  group: cluster
+  purpose: Upgrade metadata schemas when upgrading between major versions.
+  url: https://docs.sqream.com/en/latest/reference/cli/upgrade_storage.html
+key_flows:
+- name: Connect and run a query
+  example: './sqream sql --port=5000 --username=jdoe --databasename=master'
+  source: https://docs.sqream.com/en/latest/reference/cli/sqream_sql.html
+- name: Connect through the load balancer
+  example: 'sqream sql --port=3105 --clustered --username=oldmcd -d farm'
+  source: https://docs.sqream.com/en/latest/reference/cli/sqream_sql.html

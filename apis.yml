@@ -1,17 +1,33 @@
 aid: sqream-technologies
 name: SQream Technologies
-description: 'SQream Technologies is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  SQream Technologies is an Israeli data and analytics company, founded in 2010 in Tel Aviv, that builds
+  SQreamDB — a GPU-accelerated, SQL-compliant analytics database for petabyte-scale workloads on NVIDIA
+  hardware — alongside AISQream for AI/ML pipelines and Panoply, the no-code cloud data warehouse it
+  acquired in 2021. SQream's programmatic surface is a database surface rather than an HTTP one: it is
+  reached through first-party client drivers (Python DB-API `pysqream`, JDBC, ODBC, Node.js, .NET,
+  SQLAlchemy dialects, Spark and Trino connectors, and an Apache Airflow provider) speaking SQream's own
+  wire protocol, plus a set of command-line programs. SQream publishes no public REST/HTTP API, OpenAPI,
+  AsyncAPI or GraphQL contract; its customers are enterprises in financial services, telecommunications,
+  retail, manufacturing, healthcare and ad-tech running self-managed or cloud-deployed clusters.
+image: https://sqream.com/wp-content/uploads/2022/09/cropped-sqream_favicon-192x192.png
 url: https://raw.githubusercontent.com/api-evangelist/sqream-technologies/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-29'
 modified: '2026-08-29'
 tags:
 - Company
+- Database
+- Data Warehouse
+- Analytics
+- GPU
+- SQL
+- Big Data
+- Machine Learning
+- Data Ingestion
+- Israel
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +35,54 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/sqream-technologies-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/sqream-technologies_stock/
+  url: https://sqream.com/
+- type: Documentation
+  url: https://docs.sqream.com/
+- type: APIReference
+  url: https://docs.sqream.com/en/latest/reference/index.html
+- type: GettingStarted
+  url: https://docs.sqream.com/en/latest/getting_started/index.html
+- type: Blog
+  url: https://sqream.com/blog/
+- type: GitHubOrganization
+  url: https://github.com/SQream
+- type: Support
+  url: https://sqream.com/contact-us/
+- type: Pricing
+  url: https://sqream.com/product/pricing-page/
+- type: PrivacyPolicy
+  url: https://sqream.com/privacy-policy/
+- type: SecurityPolicy
+  url: https://sqream.com/security-policy/
+- type: Packages
+  url: packages/sqream-technologies-packages.yml
+- type: SDKs
+  url: packages/sqream-technologies-packages.yml
+- type: CLI
+  url: cli/sqream-technologies-cli.yml
+- type: ChangeLog
+  url: changelog/sqream-technologies-changelog.yml
+- type: Lifecycle
+  url: lifecycle/sqream-technologies-lifecycle.yml
+- type: Authentication
+  url: authentication/sqream-technologies-authentication.yml
+- type: Conventions
+  url: conventions/sqream-technologies-conventions.yml
+- type: Conformance
+  url: conformance/sqream-technologies-conformance.yml
+- type: Plans
+  url: plans/sqream-technologies-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/sqream-technologies-rate-limits.yml
+- type: VulnerabilityDisclosure
+  url: security/sqream-technologies-vulnerability-disclosure.yml
+- type: LLMsTxt
+  url: llms/sqream-technologies-llms.txt
+x-enrichment:
+  date: '2026-08-29'
+  status: enriched
+  artifacts_added: 13
+  pass: local-v1

@@ -1,0 +1,37 @@
+generated: '2026-08-29'
+method: searched
+source: https://docs.sqream.com/en/latest/releases/index.html
+versioning:
+  scheme: major.minor
+  current: '4.17'
+  released: '2026-04-23'
+  documentation_versioning: >-
+    The documentation site is versioned per release — /en/4.17/, /en/4.16/ … alongside /en/latest/ —
+    so every shipped version keeps a permanently addressable reference. This is the strongest
+    lifecycle signal SQream publishes.
+  source: https://docs.sqream.com/en/latest/releases/index.html
+release_notes: https://docs.sqream.com/en/latest/releases/index.html
+deprecation_policy:
+  published: false
+  note: >-
+    No standalone deprecation or end-of-life policy page was found on sqream.com or docs.sqream.com,
+    and there is no HTTP surface on which RFC 8594 Sunset/Deprecation headers could be returned.
+    Deprecations, where they occur, are announced inside individual release-notes pages. NO
+    Deprecation pointer is emitted, because no policy is published.
+status_page:
+  published: false
+  note: >-
+    No status page. status.sqream.com does not resolve (NXDOMAIN, probed 2026-08-29), and no
+    Statuspage/Instatus/Better Stack property is linked from sqream.com. Expected for a
+    customer-deployed cluster product with no vendor-hosted runtime. NO StatusPage pointer is emitted.
+  probe:
+    host: status.sqream.com
+    result: NXDOMAIN
+    checked: '2026-08-29'
+sla:
+  published: false
+  note: No public SLA document; support terms are handled through the enterprise sales motion.
+support:
+  channel: https://sqream.com/contact-us/
+  note: Contact form and enterprise support; no public community forum, Slack or Discourse found.
+deprecated_operations: []
