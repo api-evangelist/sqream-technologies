@@ -1,0 +1,14 @@
+{
+  "repo": "sqream-technologies",
+  "feeds": [
+    {
+      "source": "https://docs.sqream.com/en/latest/getting_started/index.html",
+      "feed_url": "https://docs.sqream.com/en/latest/getting_started/index.html",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-08-30T22:33:40Z"
+}
