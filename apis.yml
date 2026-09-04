@@ -10,6 +10,21 @@ description: >-
   wire protocol, plus a set of command-line programs. SQream publishes no public REST/HTTP API, OpenAPI,
   AsyncAPI or GraphQL contract; its customers are enterprises in financial services, telecommunications,
   retail, manufacturing, healthcare and ad-tech running self-managed or cloud-deployed clusters.
+accessModel:
+  pricing: unknown
+  onboarding: approval
+  trial: false
+  try_now: false
+  public: false
+  label: Requires approval
+  confidence: medium
+  source:
+  - plans
+  - authentication
+  - rate-limits
+  - security
+  generated: '2026-09-03'
+  method: derived
 image: https://sqream.com/wp-content/uploads/2022/09/cropped-sqream_favicon-192x192.png
 url: https://raw.githubusercontent.com/api-evangelist/sqream-technologies/refs/heads/main/apis.yml
 x-type: company
