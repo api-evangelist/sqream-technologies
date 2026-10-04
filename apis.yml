@@ -40,7 +40,7 @@ tags:
 - GPU
 - SQL
 - Big Data
-- Machine-Learning
+- Machine Learning
 - Data Ingestion
 - Israel
 tags_raw:
@@ -54,6 +54,7 @@ tags_raw:
 - Machine Learning
 - Data Ingestion
 - Israel
+- Machine-Learning
 apis: []
 maintainers:
 - FN: Kin Lane
