@@ -1,0 +1,115 @@
+edges:
+- partner_name: npm registry
+  partner: npm
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (JavaScript/TypeScript)
+  evidence: https://www.npmjs.com/package/@sqream/sqreamdb
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: '@sqream/sqreamdb'
+      version: 4.2.6
+      released: '2022-04-07'
+      released_field: modified
+      lapsed: true
+      page: https://www.npmjs.com/package/@sqream/sqreamdb
+      repo_leg: github-org:sqream
+      publisher_leg: org:sqream
+      matched_by: github-org
+    current: false
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
+- partner_name: PyPI
+  partner: pypi
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (Python)
+  evidence: https://pypi.org/project/airflow-provider-sqream-blue/
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: PyPI (public registry JSON)
+    spec_file: null
+    language: Python
+    packages:
+    - name: airflow-provider-sqream-blue
+      version: 0.0.13
+      released: '2023-11-22'
+      released_field: upload_time
+      lapsed: true
+      page: https://pypi.org/project/airflow-provider-sqream-blue/
+      repo_leg: github-org:sqream
+      publisher_leg: email:sqream.com
+      matched_by: domain
+    - name: pysqream
+      version: 6.3.0
+      released: '2025-07-17'
+      released_field: upload_time
+      lapsed: false
+      page: https://pypi.org/project/pysqream/
+      repo_leg: github-org:sqream
+      publisher_leg: email:sqream.com
+      matched_by: domain
+    - name: pysqream-blue
+      version: 1.0.48
+      released: '2024-08-26'
+      released_field: upload_time
+      lapsed: true
+      page: https://pypi.org/project/pysqream-blue/
+      repo_leg: github-org:sqream
+      publisher_leg: email:sqream.com
+      matched_by: domain
+    - name: pysqream-blue-sqlalchemy
+      version: 0.9.3
+      released: '2024-09-24'
+      released_field: upload_time
+      lapsed: true
+      page: https://pypi.org/project/pysqream-blue-sqlalchemy/
+      repo_leg: github-org:sqream
+      publisher_leg: email:sqream.com
+      matched_by: domain
+    - name: pysqream-sqlalchemy
+      version: '1.4'
+      released: '2025-03-31'
+      released_field: upload_time
+      lapsed: false
+      page: https://pypi.org/project/pysqream-sqlalchemy/
+      repo_leg: github-org:sqream
+      publisher_leg: email:sqream.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
+generated: '2026-10-18'
+method: searched
+source:
+- https://api.nuget.org/v3
+- https://crates.io/api/v1
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
+checked:
+- https://api.nuget.org/v3
+- https://crates.io/api/v1
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
